@@ -1,0 +1,5 @@
+Apartment:
+- flicking lights
+- computer terminal
+- window with closed blinds
+- clock next to bed

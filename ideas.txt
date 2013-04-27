@@ -1,0 +1,16 @@
+Theme: Minimalism
+
+- a 3D game in Unity and GameDraw.
+- first-person point-and-click adventure
+- minimalist graphics & sound
+  - graphics = little-to-no texturing
+  - sound = minimalist music, sound effects
+- fixed-location camera, can rotate 360 on the Z axis
+  - rotate camera on mouse at screen edge?
+- terminals which you can access and use a command-line interface to act as the puzzles (kind of like Dunnet)
+- some sort of thriller setting?
+
+
+
+- will probably need to implement some sort of queueing system for the instructions to make scripting easier
+	- that way, when displaying speech on screen, clicking to continue just pops off the next instruction from the queue

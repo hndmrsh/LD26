@@ -1,0 +1,5 @@
+Camera:
+
+wake up
+start: pos=(3.2,3.3,13) rot=(315,190,0)
+clock: pos=(5.0,3.3,13) rot=(10,105,0)
