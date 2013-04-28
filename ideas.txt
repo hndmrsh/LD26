@@ -11,6 +11,17 @@ Theme: Minimalism
 - some sort of thriller setting?
 
 
+// Quartz MS Regular is font for clock
 
-- will probably need to implement some sort of queueing system for the instructions to make scripting easier
-	- that way, when displaying speech on screen, clicking to continue just pops off the next instruction from the queue
+
+- model a guitar. Using it plays sound effect of recording of detuned guitar.
+
+- Use() lightswitch:
+  - move close to lightswitch
+  - rotate top lightswitch to on position
+  - turn lights on
+  - back to original position
+  - say "Much better"
+  
+  
+- Need to fix apartment scripts now that I'm using transform.Rotate instead of transform.eulerAngles += etc.

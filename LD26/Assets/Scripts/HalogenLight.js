@@ -19,16 +19,17 @@ function Start(){
 
 function Update () {
 	if(on && flicker){
-		if(timeToNextFlick == 0){
+		if(flickTime == 0){
 			light.intensity = intensity;
-			flickTime = Mathf.Pow(Random.Range(12, 30), 1.8);
+			// time to next flick
+			timeToNextFlick = Mathf.Pow(Random.Range(12, 20), 1.8);
 		}
 		
-		if(timeToNextFlick >= flickTime){
+		if(flickTime >= timeToNextFlick){
 			light.intensity = flickerIntensity;
-			timeToNextFlick = -Mathf.Sqrt(Random.Range(25, 500));
+			flickTime = -Mathf.Sqrt(Random.Range(25, 1000));
 		} else {
-			timeToNextFlick++;
+			flickTime++;
 		}
 	}
 }
@@ -38,6 +39,6 @@ function SwitchState(){
 	if(!on){
 		light.intensity = 0;
 	} else {
-		light.intensity = 0;
+		light.intensity = intensity;
 	}
 }

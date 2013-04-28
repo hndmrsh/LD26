@@ -1,7 +1,7 @@
 Scene 1:
  - you are at home in your apartment
  - alarm goes off * beep beep beep beep * x 2; eyes closed, black screen
- - blinking awake
+ - blinking awake (fade in)
  - turn head to check time
  - you wake up in the morning to find a envelope sitting on the floor by the door
  - you open the envelope to find a USB stick

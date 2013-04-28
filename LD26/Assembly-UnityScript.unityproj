@@ -44,7 +44,18 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Scripts\Events\ApartmentScriptEvents.js" />
+     <Compile Include="Assets\Scripts\Events\GlobalScriptEvents.js" />
+     <Compile Include="Assets\Scripts\Events\ScriptEvents.js" />
      <Compile Include="Assets\Scripts\HalogenLight.js" />
+     <Compile Include="Assets\Scripts\Interactable.js" />
+     <Compile Include="Assets\Scripts\Objects\AlarmClock.js" />
+     <Compile Include="Assets\Scripts\Objects\Bed.js" />
+     <Compile Include="Assets\Scripts\Objects\Computer.js" />
+     <Compile Include="Assets\Scripts\Objects\Drawers.js" />
+     <Compile Include="Assets\Scripts\Objects\Lights.js" />
+     <Compile Include="Assets\Scripts\Objects\Lightswitch.js" />
+     <Compile Include="Assets\Scripts\Objects\Wardrobe.js" />
      <Compile Include="Assets\Scripts\Player.js" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
