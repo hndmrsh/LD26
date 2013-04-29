@@ -9,10 +9,27 @@ public class Lightswitch extends Interactable{
 	private var switchLimit : int = 2;
 	private var joke : boolean = true;
 	
+	// queue-able function for switching state
+	private var switchState = function(){
+		if(on){
+			on = false;
+			for(var light : HalogenLight in lights){
+				light.SwitchState();
+			}
+			lightswitch.transform.Rotate(30.0, 0.0, 0.0);
+		} else {
+			on = true;
+			for(var light : HalogenLight in lights){
+				light.SwitchState();
+			}
+			lightswitch.transform.Rotate(-30.0, 0.0, 0.0);
+		}
+	};
+	
 	function Start(){
 		super.Start();
 		lights = GameObject.FindSceneObjectsOfType(HalogenLight);
-		lightswitch = GameObject.FindGameObjectWithTag("Lightswitch");
+		lightswitch = GameObject.FindGameObjectWithTag("Top Lightswitch");
 	}
 	
 	function Look(){
@@ -30,42 +47,39 @@ public class Lightswitch extends Interactable{
 				Q(say, ["The lights can stay on. They're rather useful."]);
 			} else {
 			
-				MoveToSwitch();
+				MoveTo();
 				
-				on = false;
-				for(var light : HalogenLight in lights){
-					light.SwitchState();
-				}
-				lightswitch.transform.Rotate(Vector3(-30.0,0,0));
+				Q(switchState, []);
 
 				switchLimit--;
 				print("switchLimit="+switchLimit);
 				
 				if (switchLimit == 0){
+					Q(wait, [null, 200]);
 					Q(say, ["On. Off. On. Off."]);
 					Q(say, ["No wonder the lights are always faulty!"]);
 					joke = false;
+					Q(wait, [null, 200]);
 				}
 				
 				MoveBack();
 			}
 		} else {
-			on = true;
-			for(var light : HalogenLight in lights){
-				light.SwitchState();
-			}
-			lightswitch.transform.Rotate(Vector3(30.0,0,0));
-	
-			MoveToSwitch();
-			
+		
+			MoveTo();
+		
+			Q(switchState, []);
 			if (switchLimit == 2){
 				// first time turning on
+				Q(wait, [null, 200]);
 				Q(say, ["Aaah! My head is throbbing, and those damn lights aren't helping."]);
 				Q(wait, [null, 1100]);
-				Q(say, ["And now my stomach feels like it's being slowly dissolved from within."]);
+				Q(say, ["Nor does the nausea."]);
+				Q(say, ["Shit."]);
 				Q(say, ["It's going to be a long day."]);
 				Q(wait, [null, 500]);
-				Q(say, ["Better get dressed, I suppose."]);
+				Q(say, ["I should get dressed."]);
+				Q(wait, [null, 200]);
 			}
 			
 			MoveBack();
@@ -74,12 +88,24 @@ public class Lightswitch extends Interactable{
 		
 	}
 	
-	function MoveToSwitch(){
+	// move to and back from lightswitch
 	
+	private var rotateY : float;
+	
+	function MoveTo(){
+		rotateY = AngleToTargetY(player.gameObject.transform.eulerAngles.y, 200.0);
+		Q(rotate, [Vector3(13.0,rotateY,0.0), 1400]);
+		Q(move, [Vector3(-0.7,-1.4,-10.0), 1400]);
+		Q(wait, [null, 2000]);
 	}
 	
 	function MoveBack(){
+		Q(move, [Vector3(0.7,1.4,10.0), 1400]);
+		Q(rotate, [Vector3(-13.0,-rotateY,0.0), 1400]);
+	}
 	
+	function IsOn() : boolean{
+		return on;
 	}
 	
 }

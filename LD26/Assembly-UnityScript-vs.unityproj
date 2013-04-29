@@ -51,10 +51,13 @@
      <Compile Include="Assets\Scripts\Interactable.js" />
      <Compile Include="Assets\Scripts\Objects\AlarmClock.js" />
      <Compile Include="Assets\Scripts\Objects\Bed.js" />
+     <Compile Include="Assets\Scripts\Objects\Blinds.js" />
      <Compile Include="Assets\Scripts\Objects\Computer.js" />
+     <Compile Include="Assets\Scripts\Objects\Door.js" />
      <Compile Include="Assets\Scripts\Objects\Drawers.js" />
      <Compile Include="Assets\Scripts\Objects\Lights.js" />
      <Compile Include="Assets\Scripts\Objects\Lightswitch.js" />
+     <Compile Include="Assets\Scripts\Objects\Monitor.js" />
      <Compile Include="Assets\Scripts\Objects\Wardrobe.js" />
      <Compile Include="Assets\Scripts\Player.js" />
   </ItemGroup>

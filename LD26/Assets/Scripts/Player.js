@@ -128,7 +128,7 @@ public class Player extends MonoBehaviour {
 				rotate.y = mouseRotationSpeed;
 			}
 			
-			transform.Rotate(rotate);
+			transform.eulerAngles += rotate;
 		}
 	}
 	
@@ -152,7 +152,7 @@ public class Player extends MonoBehaviour {
 				mTime += movingTime;
 				movingTime = 0;
 			}
-			transform.localPosition += (movingSpeed * mTime);
+			transform.position += (movingSpeed * mTime);
 		}
 		
 		if(movingTime == 0){
@@ -169,7 +169,7 @@ public class Player extends MonoBehaviour {
 				rTime += rotatingTime;
 				rotatingTime = 0;
 			}
-			transform.Rotate(rotatingSpeed * rTime);
+			transform.eulerAngles += rotatingSpeed * rTime;
 			
 			if(rotatingTime == 0){
 				rotatingSpeed = Vector3(0,0,0);
@@ -209,12 +209,12 @@ public class Player extends MonoBehaviour {
 	// SET ACTIONS
 	
 	function SetMove(speed : Vector3, time : int){
-		movingSpeed += speed;
+		movingSpeed = speed;
 		movingTime = time;
 	}
 	
 	function SetRotate(speed : Vector3, time : int){
-		rotatingSpeed += speed;
+		rotatingSpeed = speed;
 		rotatingTime = time;
 	}
 	

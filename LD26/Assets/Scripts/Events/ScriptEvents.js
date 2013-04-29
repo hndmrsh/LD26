@@ -75,6 +75,11 @@ public class ScriptEvents extends MonoBehaviour{
 		fadingIn = false;
 	};
 	
+	//protected var call = function(func : Function, params : Object[]){
+	//	func.Call(params);
+	//};
+	/// DERP!
+	
 	// END FUNCTION VARIABLES
 	
 	function Start(){
@@ -112,7 +117,7 @@ public class ScriptEvents extends MonoBehaviour{
 			
 			if(titleTime > 0){
 				var screenDivisions : int = (Screen.height / 10);
-				GUI.Label(Rect(screenDivisions, screenDivisions, Screen.width - screenDivisions, screenDivisions + (screenDivisions * 4)), titleText, titleStyle);
+				GUI.Label(Rect(screenDivisions, screenDivisions, Screen.width - (screenDivisions * 2), screenDivisions * 4), titleText, titleStyle);
 			}
 		}
 	}
@@ -151,6 +156,22 @@ public class ScriptEvents extends MonoBehaviour{
 				tTime += titleTime;
 				titleTime = 0;
 			}
+		}
+	}
+	
+	function AngleToTargetY(from : float, target : float) : float{
+		var iFrom : int = Mathf.RoundToInt(from % 360);
+		var iTarget : int = Mathf.RoundToInt(target % 360);
+		
+		var angle : float = Quaternion.Angle(Quaternion.Euler(0.0,from,0.0), Quaternion.Euler(0.0, target, 0.0));
+		var iAngle : int = Mathf.RoundToInt(angle);
+
+		if(iTarget - iFrom == iAngle || (iTarget+360) - iFrom == iAngle){
+			return angle;
+		} else if(iFrom - iTarget == iAngle || (iFrom+360) - iTarget == iAngle){
+			return -angle;
+		} else {
+			print("nothing");
 		}
 	}
 	

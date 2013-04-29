@@ -16,12 +16,12 @@ Theme: Minimalism
 
 - model a guitar. Using it plays sound effect of recording of detuned guitar.
 
-- Use() lightswitch:
-  - move close to lightswitch
-  - rotate top lightswitch to on position
-  - turn lights on
-  - back to original position
-  - say "Much better"
-  
-  
-- Need to fix apartment scripts now that I'm using transform.Rotate instead of transform.eulerAngles += etc.
+
+
+
+-----------------------------------
+
+To finish for LD:
+
+- ambient sounds (fan rotating, alarm clock, getting dressed)
+- music

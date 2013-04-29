@@ -3,12 +3,12 @@ Scene 1:
  - alarm goes off * beep beep beep beep * x 2; eyes closed, black screen
  - blinking awake (fade in)
  - turn head to check time
- - you wake up in the morning to find a envelope sitting on the floor by the door
+ - get dressed (fade out)
+ - finished getting dressed (fade in), find a envelope sitting on the floor by the door
  - you open the envelope to find a USB stick
- - you insert it into your desktop and it reboots into some command prompt, asking for a login
- - you leave the login prompt (ESC), and the phone rings
- - a voice on the other line says something about needing to run (?) and the USB stick will help
+ - you insert it into your desktop and it reboots into some command prompt
+ - traverse the filesystem to find a README file
+ - file says something about needing to run (the police have found out about your illegal operations) and the USB stick will help
  - knocking at the door from police/some secret-service-esque thing
- - go into command prompt
- - then do SSH into some other server to escape
+ - do SSH into some other server to escape
    - how does the character know what other server? some file on the USB stick with some address?

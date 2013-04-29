@@ -1,17 +1,20 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Events\ScriptEvents.js">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Objects\Computer.js">
     <Files>
-      <File FileName="Assets\Scripts\Objects\Computer.js" Line="3" Column="22" />
-      <File FileName="Assets\Scripts\Objects\Wardrobe.js" Line="11" Column="17" />
-      <File FileName="Assets\Scripts\Objects\Lights.js" Line="29" Column="65" />
-      <File FileName="Assets\Scripts\HalogenLight.js" Line="3" Column="1" />
-      <File FileName="Assets\Scripts\Player.js" Line="172" Column="21" />
-      <File FileName="Assets\Scripts\Events\ApartmentScriptEvents.js" Line="35" Column="1" />
-      <File FileName="Assets\Scripts\Objects\Lightswitch.js" Line="57" Column="52" />
-      <File FileName="Assets\Scripts\Events\ScriptEvents.js" Line="78" Column="27" />
+      <File FileName="Assets\Scripts\Events\ApartmentScriptEvents.js" Line="31" Column="3" />
+      <File FileName="Assets\Scripts\Objects\Computer.js" Line="6" Column="104" />
+      <File FileName="Assets\Scripts\Objects\Lights.js" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\HalogenLight.js" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Player.js" Line="40" Column="22" />
       <File FileName="Assets\Scripts\Objects\Drawers.js" Line="1" Column="1" />
       <File FileName="Assets\Scripts\Objects\Bed.js" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Objects\Blinds.js" Line="3" Column="1" />
+      <File FileName="Assets\Scripts\Objects\Monitor.js" Line="5" Column="2" />
+      <File FileName="Assets\Scripts\Objects\Lightswitch.js" Line="91" Column="2" />
+      <File FileName="Assets\Scripts\Objects\Wardrobe.js" Line="42" Column="79" />
+      <File FileName="Assets\Scripts\Events\ScriptEvents.js" Line="120" Column="135" />
+      <File FileName="Assets\Scripts\Objects\Door.js" Line="26" Column="22" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
