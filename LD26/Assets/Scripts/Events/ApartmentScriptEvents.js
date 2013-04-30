@@ -16,12 +16,11 @@ public class ApartmentScriptEvents extends ScriptEvents {
 	
 	// the first event; waking up in your apartment
 	function WakeUp(){
-		
+		var alarm : AudioSource = GameObject.FindObjectOfType(AlarmClock).audio;
 		
 		Q(fadeOut, [null, 1]);
 		Q(wait, [null, 1500]);
-		// play alarm sound now until after the "all right I'm getting up" text has been dismissed
-		//(can do this on time, as time will not decrease while waiting for input)
+		Q(playSound, [alarm]);
 		Q(wait, [null, 2000]);
 		Q(title, ["Morning", 4000]);
 		Q(wait, [null, 5000]);
@@ -36,7 +35,7 @@ public class ApartmentScriptEvents extends ScriptEvents {
 		Q(say, ["Ugh."]);
 		Q(say, ["Fuck."]);
 		Q(say, ["All right, I'm getting up."]);
-		// stop sound
+		Q(stopSound, [alarm]);
 		Q(rotate, [Vector3(-55.0,95.0,0.0), 1500]);
 		Q(wait, [null, 900]);
 		Q(move, [Vector3(-2.0,0.0,0.0), 600]);

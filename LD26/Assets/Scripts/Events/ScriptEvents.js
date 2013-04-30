@@ -75,6 +75,17 @@ public class ScriptEvents extends MonoBehaviour{
 		fadingIn = false;
 	};
 	
+	protected var playSound = function(sound : AudioSource){
+		print("startSound(" + sound + ")");
+		sound.Play();
+		
+	};
+	
+	protected var stopSound = function(sound : AudioSource){
+		print("stopSound(" + sound + ")");
+		sound.Stop();
+	};
+	
 	//protected var call = function(func : Function, params : Object[]){
 	//	func.Call(params);
 	//};

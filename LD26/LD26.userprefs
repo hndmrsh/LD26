@@ -1,20 +1,20 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Objects\Computer.js">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Events\ApartmentScriptEvents.js">
     <Files>
-      <File FileName="Assets\Scripts\Events\ApartmentScriptEvents.js" Line="31" Column="3" />
-      <File FileName="Assets\Scripts\Objects\Computer.js" Line="6" Column="104" />
+      <File FileName="Assets\Scripts\Events\ApartmentScriptEvents.js" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Objects\Computer.js" Line="1" Column="1" />
       <File FileName="Assets\Scripts\Objects\Lights.js" Line="1" Column="1" />
       <File FileName="Assets\Scripts\HalogenLight.js" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Player.js" Line="40" Column="22" />
+      <File FileName="Assets\Scripts\Player.js" Line="1" Column="1" />
       <File FileName="Assets\Scripts\Objects\Drawers.js" Line="1" Column="1" />
       <File FileName="Assets\Scripts\Objects\Bed.js" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Objects\Blinds.js" Line="3" Column="1" />
-      <File FileName="Assets\Scripts\Objects\Monitor.js" Line="5" Column="2" />
-      <File FileName="Assets\Scripts\Objects\Lightswitch.js" Line="91" Column="2" />
-      <File FileName="Assets\Scripts\Objects\Wardrobe.js" Line="42" Column="79" />
-      <File FileName="Assets\Scripts\Events\ScriptEvents.js" Line="120" Column="135" />
-      <File FileName="Assets\Scripts\Objects\Door.js" Line="26" Column="22" />
+      <File FileName="Assets\Scripts\Objects\Blinds.js" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Objects\Monitor.js" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Objects\Lightswitch.js" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Objects\Wardrobe.js" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Events\ScriptEvents.js" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Objects\Door.js" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
