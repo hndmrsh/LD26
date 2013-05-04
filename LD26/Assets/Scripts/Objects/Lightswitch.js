@@ -11,19 +11,13 @@ public class Lightswitch extends Interactable{
 	
 	// queue-able function for switching state
 	private var switchState = function(){
-		if(on){
-			on = false;
-			for(var light : HalogenLight in lights){
-				light.SwitchState();
-			}
-			lightswitch.transform.Rotate(30.0, 0.0, 0.0);
-		} else {
-			on = true;
-			for(var light : HalogenLight in lights){
-				light.SwitchState();
-			}
-			lightswitch.transform.Rotate(-30.0, 0.0, 0.0);
+		on = !on;
+		for(var light : HalogenLight in lights){
+			light.SwitchState();
 		}
+		
+		lightswitch.transform.Rotate((on ? -30.0 : 30.0), 0.0, 0.0);
+		
 	};
 	
 	function Start(){

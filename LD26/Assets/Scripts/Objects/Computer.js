@@ -2,6 +2,13 @@
 
 public class Computer extends Interactable{
 
+	private var apartmentEvents : ApartmentScriptEvents;
+	
+	function Start(){
+		super.Start();
+		apartmentEvents = GameObject.FindObjectOfType(ApartmentScriptEvents);
+	}
+	
 	function Look(){
 		Q(say, ["I've had this computer a while now. It's served me well, but it may be on its last legs."]);
 	}
@@ -11,6 +18,8 @@ public class Computer extends Interactable{
 		Q(wait, [null, 300]);
 		Q(say, ["... clients."]);
 		Q(say, ["It'll have to wait 'til I get home, at any rate."]);
+		
+		Q(executeEvent, [apartmentEvents, "police"]);
 	}
 	
 }

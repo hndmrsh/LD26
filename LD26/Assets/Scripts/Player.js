@@ -28,7 +28,7 @@ public class Player extends MonoBehaviour {
 	private var cursorSize : int = 32;
 	
 	// constants
-	private var sayTick : int = 100; // number of ms to wait between printing characters
+	private var sayTick : int = 70; // number of ms to wait between printing characters
 	private var mouseRotationSpeed : double = 1.0;
 	// end constants
 	
@@ -55,11 +55,15 @@ public class Player extends MonoBehaviour {
 			Application.Quit();
 		} 
 		
-		if(Input.GetButtonDown("Advance Text")){
-			// clear the current text
-			say = null;
-			sayCount = 0;
-			waitingForInput = false;
+		if(Input.GetButtonDown("Advance Text") && say){
+			if(sayCount < (sayTick * say.Length)){
+				sayCount = (sayTick * say.Length);
+			} else {
+				// clear the current text
+				say = null;
+				sayCount = 0;
+				waitingForInput = false;
+			}
 		} 
 		
 		if(acceptingInput && Input.GetButtonDown("Scroll Actions")){

@@ -86,6 +86,11 @@ public class ScriptEvents extends MonoBehaviour{
 		sound.Stop();
 	};
 	
+	protected var executeEvent = function(scriptEvents : ScriptEvents, eventName : String){
+		print("executeEvent(" + scriptEvents + ", " + eventName + ")");
+		scriptEvents.ExecuteEvent(eventName);
+	};
+	
 	//protected var call = function(func : Function, params : Object[]){
 	//	func.Call(params);
 	//};
@@ -187,5 +192,5 @@ public class ScriptEvents extends MonoBehaviour{
 	}
 	
 	// override this in subclasses
-	function ExecuteEvent(event : String) : boolean{}
+	function ExecuteEvent(event : String) {}
 }
