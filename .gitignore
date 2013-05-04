@@ -1,3 +1,16 @@
+##################
+#Project specific#
+##################
+
+*Temp*
+git-ignore/
+
+
+
+
+
+
+
 #################
 ## Eclipse
 #################
@@ -161,6 +174,3 @@ pip-log.txt
 
 # Mac crap
 .DS_Store
-
-
-*Temp*
