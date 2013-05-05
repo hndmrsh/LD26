@@ -7,19 +7,20 @@ Minimalism, which I incorporated by choosing to have little-to-no texturing, and
 graphical effects through the use of shaders only.
 
 Tools Used: 
------------ 
-Unity 
-MonoDevelop 
-Blender 
-Audacity 
-sfxr 
-Chronolapse 
-GitHub 
+-----------
+Unity<br/>
+MonoDevelop<br/>
+Blender<br/>
+Audacity<br/>
+sfxr<br/>
+Chronolapse<br/>
+GitHub<br/> 
+
 
 Controls: 
 --------- 
-Action: Left Mouse 
-Switch action: Right Mouse 
-Rotate: Mouse to Left/Right Edge of Screen 
-Advance text: Left Mouse -or- Enter 
-Quit: Escape 
+Action: Left Mouse<br/>
+Switch action: Right Mouse<br/>
+Rotate: Mouse to Left/Right Edge of Screen<br/>
+Advance text: Left Mouse -or- Enter<br/>
+Quit: Escape<br/>
