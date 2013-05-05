@@ -2,13 +2,13 @@
 
 import System.Collections.Generic;
 
-public class ScriptEvents extends MonoBehaviour{
+public class ScriptEvents extends MonoBehaviour implements ScreenSizeChangeListener{
 
 	var isGui : boolean;
 	var fadeTexture : Texture2D;
 	var titleStyle : GUIStyle;
 	
-	protected var q : Queue.<Function>;
+	protected static var q : Queue.<Function>;
 	protected var player : Player;
 	
 	private var fadeAmount : double;
@@ -22,6 +22,9 @@ public class ScriptEvents extends MonoBehaviour{
 	// wrapper function for queueing	 
 	protected function Q(func : Function, params : Object[]) : Function{
 		player.SetAcceptingInput(false);
+		if(!q){
+			q = Queue.<Function>();
+		}
 		q.Enqueue((function(){func.Call(params);}));
 	}
 	
@@ -100,8 +103,11 @@ public class ScriptEvents extends MonoBehaviour{
 	
 	function Start(){
 		player = GameObject.FindGameObjectWithTag("Player").GetComponent(Player);
-		q = new Queue.<Function>();
 		fadeAmount = 0.0;
+		
+		if(isGui){
+			GameInfo.RegisterScreenSizeChangeListnener(this);
+		}
 	}
 	
 	function HasNext() : boolean {
@@ -131,11 +137,15 @@ public class ScriptEvents extends MonoBehaviour{
 			GUI.color = Color(1.0, 1.0, 1.0, fadeAmount);
 			GUI.DrawTexture(Rect(0,0,Screen.width,Screen.height),fadeTexture);
 			
-			if(titleTime > 0){
+			if(titleTime > 0){		
 				var screenDivisions : int = (Screen.height / 10);
 				GUI.Label(Rect(screenDivisions, screenDivisions, Screen.width - (screenDivisions * 2), screenDivisions * 4), titleText, titleStyle);
 			}
 		}
+	}
+	
+	function OnScreenSizeChanged(){
+		titleStyle.fontSize = GameInfo.titleSize;
 	}
 	
 	function Fade(){

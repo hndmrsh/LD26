@@ -18,7 +18,7 @@
 	<DebugType>full</DebugType>
 	<Optimize>false</Optimize>
 	<OutputPath>Temp\bin\Debug\</OutputPath>
-	<DefineConstants>DEBUG;TRACE;UNITY_NACL;WEBPLUG;ENABLE_IMAGEEFFECTS;ENABLE_AUDIO_FMOD;ENABLE_MONO;ENABLE_PHYSICS;ENABLE_TERRAIN;ENABLE_GENERICS;ENABLE_CLOTH;ENABLE_MOVIES;UNITY_PEPPER;ENABLE_AUDIO;ENABLE_WWW;ENABLE_SHADOWS;ENABLE_DUCK_TYPING;UNITY_4_1_2;UNITY_4_1;ENABLE_PROFILER;UNITY_EDITOR;UNITY_WEBPLAYER</DefineConstants>
+	<DefineConstants>DEBUG;TRACE;UNITY_STANDALONE_WIN;ENABLE_MICROPHONE;ENABLE_IMAGEEFFECTS;ENABLE_WEBCAM;ENABLE_AUDIO_FMOD;UNITY_STANDALONE;ENABLE_NETWORK;ENABLE_MONO;ENABLE_PHYSICS;ENABLE_TERRAIN;ENABLE_CACHING;ENABLE_SUBSTANCE;ENABLE_GENERICS;ENABLE_CLOTH;ENABLE_MOVIES;ENABLE_AUDIO;ENABLE_WWW;ENABLE_SHADOWS;ENABLE_DUCK_TYPING;UNITY_4_1_2;UNITY_4_1;ENABLE_PROFILER;UNITY_EDITOR</DefineConstants>
 	<ErrorReport>prompt</ErrorReport>
 	<WarningLevel>4</WarningLevel>
 	<NoWarn>0169</NoWarn>
@@ -46,8 +46,10 @@
   <ItemGroup>
      <Compile Include="Assets\Scripts\Events\ApartmentScriptEvents.js" />
      <Compile Include="Assets\Scripts\Events\ScriptEvents.js" />
+     <Compile Include="Assets\Scripts\GameInfo.js" />
      <Compile Include="Assets\Scripts\HalogenLight.js" />
      <Compile Include="Assets\Scripts\Interactable.js" />
+     <Compile Include="Assets\Scripts\Inventory.js" />
      <Compile Include="Assets\Scripts\Objects\AlarmClock.js" />
      <Compile Include="Assets\Scripts\Objects\Bed.js" />
      <Compile Include="Assets\Scripts\Objects\Blinds.js" />
@@ -60,6 +62,12 @@
      <Compile Include="Assets\Scripts\Objects\Wardrobe.js" />
      <Compile Include="Assets\Scripts\Player.js" />
      <Compile Include="Assets\Scripts\PoliceLights.js" />
+     <Compile Include="Assets\Scripts\ScreenSizeChangeListener.js" />
+     <Compile Include="Assets\Scripts\Terminal\Directory.js" />
+     <Compile Include="Assets\Scripts\Terminal\File.js" />
+     <Compile Include="Assets\Scripts\Terminal\NormalFile.js" />
+     <Compile Include="Assets\Scripts\Terminal\Terminal.js" />
+     <Compile Include="Assets\Scripts\Terminal\TerminalSession.js" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

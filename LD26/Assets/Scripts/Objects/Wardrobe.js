@@ -53,12 +53,12 @@ public class Wardrobe extends Interactable{
 	function MoveTo(){
 		rotateY = AngleToTargetY(player.gameObject.transform.eulerAngles.y, 352.0);
 		Q(rotate, [Vector3(3.0,rotateY,0.0), 1400]);
-		Q(move, [Vector3(-5.3,0.0,7.5), 1400]);
+		Q(move, [Vector3(-5.3,0.0,6.0), 1400]);
 		Q(wait, [null, 1400]);
 	}
 	
 	function MoveBack(){
-		Q(move, [Vector3(5.3,0.0,-7.5), 1400]);
+		Q(move, [Vector3(5.3,0.0,-6.0), 1400]);
 		Q(rotate, [Vector3(-3.0,-rotateY,0.0), 1400]);
 	}
 	

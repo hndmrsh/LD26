@@ -1,13 +1,20 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Player.js">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Terminal\Terminal.js">
     <Files>
-      <File FileName="Assets\Scripts\PoliceLights.js" Line="58" Column="16" />
-      <File FileName="Assets\Scripts\Objects\Lightswitch.js" Line="19" Column="63" />
-      <File FileName="Assets\Scripts\Events\ApartmentScriptEvents.js" Line="47" Column="5" />
-      <File FileName="Assets\Scripts\Events\ScriptEvents.js" Line="89" Column="83" />
-      <File FileName="Assets\Scripts\Objects\Computer.js" Line="22" Column="48" />
-      <File FileName="Assets\Scripts\Player.js" Line="9" Column="2" />
+      <File FileName="Assets\Scripts\Objects\Lightswitch.js" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Objects\Computer.js" Line="15" Column="42" />
+      <File FileName="Assets\Scripts\Events\ApartmentScriptEvents.js" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Player.js" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\GameInfo.js" Line="22" Column="1" />
+      <File FileName="Assets\Scripts\Events\ScriptEvents.js" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Objects\Wardrobe.js" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Objects\Monitor.js" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Terminal\TerminalSession.js" Line="14" Column="21" />
+      <File FileName="Assets\Scripts\Terminal\Directory.js" Line="8" Column="2" />
+      <File FileName="Assets\Scripts\Terminal\File.js" Line="7" Column="2" />
+      <File FileName="Assets\Scripts\Terminal\NormalFile.js" Line="7" Column="2" />
+      <File FileName="Assets\Scripts\Terminal\Terminal.js" Line="34" Column="76" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

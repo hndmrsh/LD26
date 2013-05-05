@@ -2,7 +2,7 @@
 
 import System.Collections.Generic;
 
-public class Player extends MonoBehaviour {
+public class Player extends MonoBehaviour implements ScreenSizeChangeListener{
 	
 	var scriptEvents : ScriptEvents;
 	var cursors : Texture2D[];
@@ -23,6 +23,7 @@ public class Player extends MonoBehaviour {
 	private var sayCount : int;
 	
 	private var acceptingInput : boolean;
+	private var usingTerminal : boolean;
 	
 	private var currentCursor : int = 0;
 	private var cursorSize : int = 32;
@@ -34,6 +35,8 @@ public class Player extends MonoBehaviour {
 	
 	function Start(){
 		Screen.showCursor = false;
+		GameInfo.RegisterScreenSizeChangeListnener(this);
+		
 		scriptEvents.ExecuteEvent("wake_up");
 	}
 	
@@ -120,7 +123,7 @@ public class Player extends MonoBehaviour {
 	}
 	
 	function RotateByMouse(){
-		if(acceptingInput){
+		if(acceptingInput && !usingTerminal){
 			var screenDivisions = Screen.width / 10;
 			var left = screenDivisions;
 			var right = screenDivisions * 9;
@@ -194,6 +197,14 @@ public class Player extends MonoBehaviour {
 		}
 	}
 
+
+
+	function OnScreenSizeChanged(){
+		guiStyle.fontSize = GameInfo.speechSize;
+	}
+
+	// GETTERS
+	
 	function WaitingTime(){
 		return waitingTime;
 	}
@@ -205,12 +216,18 @@ public class Player extends MonoBehaviour {
 	function RotatingTime(){
 		return rotatingTime;
 	}
+	
+	function IsAcceptingInput() : boolean {
+		return acceptingInput;
+	}
+	
+	function IsUsingTerminal() : boolean {
+		return usingTerminal;
+	}
 
 
 
-
-
-	// SET ACTIONS
+	// SETTERS
 	
 	function SetMove(speed : Vector3, time : int){
 		movingSpeed = speed;
@@ -238,6 +255,9 @@ public class Player extends MonoBehaviour {
 		acceptingInput = bool;
 	}
 	
+	function SetUsingTerminal(bool : boolean){
+		usingTerminal = bool;
+	}
 	
 	
 }

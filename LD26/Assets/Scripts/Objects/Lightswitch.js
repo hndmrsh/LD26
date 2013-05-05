@@ -89,12 +89,12 @@ public class Lightswitch extends Interactable{
 	function MoveTo(){
 		rotateY = AngleToTargetY(player.gameObject.transform.eulerAngles.y, 200.0);
 		Q(rotate, [Vector3(13.0,rotateY,0.0), 1400]);
-		Q(move, [Vector3(-0.7,-1.4,-10.0), 1400]);
+		Q(move, [Vector3(-0.7,-1.4,-11.5), 1400]);
 		Q(wait, [null, 2000]);
 	}
 	
 	function MoveBack(){
-		Q(move, [Vector3(0.7,1.4,10.0), 1400]);
+		Q(move, [Vector3(0.7,1.4,11.5), 1400]);
 		Q(rotate, [Vector3(-13.0,-rotateY,0.0), 1400]);
 	}
 	
