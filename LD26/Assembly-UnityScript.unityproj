@@ -63,11 +63,15 @@
      <Compile Include="Assets\Scripts\Player.js" />
      <Compile Include="Assets\Scripts\PoliceLights.js" />
      <Compile Include="Assets\Scripts\ScreenSizeChangeListener.js" />
-     <Compile Include="Assets\Scripts\Terminal\Directory.js" />
-     <Compile Include="Assets\Scripts\Terminal\File.js" />
-     <Compile Include="Assets\Scripts\Terminal\NormalFile.js" />
+     <Compile Include="Assets\Scripts\Terminal\Filesystem\Directory.js" />
+     <Compile Include="Assets\Scripts\Terminal\Filesystem\Executable.js" />
+     <Compile Include="Assets\Scripts\Terminal\Filesystem\File.js" />
+     <Compile Include="Assets\Scripts\Terminal\Filesystem\Programs\Helpp.js" />
+     <Compile Include="Assets\Scripts\Terminal\Filesystem\Programs\Ls.js" />
+     <Compile Include="Assets\Scripts\Terminal\Filesystem\Root.js" />
+     <Compile Include="Assets\Scripts\Terminal\Sessions\ApartmentTerminalSession.js" />
+     <Compile Include="Assets\Scripts\Terminal\Sessions\TerminalSession.js" />
      <Compile Include="Assets\Scripts\Terminal\Terminal.js" />
-     <Compile Include="Assets\Scripts\Terminal\TerminalSession.js" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

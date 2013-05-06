@@ -19,7 +19,8 @@ public class Monitor extends Interactable{
 	
 	function Look(){
 		if(terminal.IsOn()){
-			Q(say, ["What am I supposed to do with this drive?"]);
+			Q(say, ["Looks like there's an operating system on this drive."]);
+			Q(say, ["But what the hell am I supposed to do with it?"]);
 		} else {
 			Q(say, ["Ancient. Do they even make these things any more?"]);
 			Q(say, ["Wish I could afford an upgrade."]);

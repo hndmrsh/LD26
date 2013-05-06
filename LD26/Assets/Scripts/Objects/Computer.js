@@ -22,14 +22,14 @@ public class Computer extends Interactable{
 	}
 	
 	function Use(){
-		if(wardrobe.IsDressed()){
+		//if(wardrobe.IsDressed()){
 			monitor.MoveTo();
-		} else {
-			Q(say, ["Wonder if I have any emails? Maybe I have some new..."]);
-			Q(wait, [null, 300]);
-			Q(say, ["... clients."]);
-			Q(say, ["It'll have to wait 'til I get home, at any rate."]);
-		}
+		//} else {
+		//	Q(say, ["Wonder if I have any emails? Maybe I have some new..."]);
+		//	Q(wait, [null, 300]);
+		//	Q(say, ["... clients."]);
+		//	Q(say, ["It'll have to wait 'til I get home, at any rate."]);
+		//}
 	}
 
 }

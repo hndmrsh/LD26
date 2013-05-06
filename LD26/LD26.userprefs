@@ -1,20 +1,14 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Terminal\Terminal.js">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Terminal\Filesystem\Programs\Helpp.js">
     <Files>
-      <File FileName="Assets\Scripts\Objects\Lightswitch.js" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Objects\Computer.js" Line="15" Column="42" />
-      <File FileName="Assets\Scripts\Events\ApartmentScriptEvents.js" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Player.js" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\GameInfo.js" Line="22" Column="1" />
-      <File FileName="Assets\Scripts\Events\ScriptEvents.js" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Objects\Wardrobe.js" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Objects\Monitor.js" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Terminal\TerminalSession.js" Line="14" Column="21" />
-      <File FileName="Assets\Scripts\Terminal\Directory.js" Line="8" Column="2" />
-      <File FileName="Assets\Scripts\Terminal\File.js" Line="7" Column="2" />
-      <File FileName="Assets\Scripts\Terminal\NormalFile.js" Line="7" Column="2" />
-      <File FileName="Assets\Scripts\Terminal\Terminal.js" Line="34" Column="76" />
+      <File FileName="Assets\Scripts\Terminal\Sessions\ApartmentTerminalSession.js" Line="8" Column="2" />
+      <File FileName="Assets\Scripts\Terminal\Sessions\TerminalSession.js" Line="21" Column="85" />
+      <File FileName="Assets\Scripts\Terminal\Filesystem\Directory.js" Line="23" Column="1" />
+      <File FileName="Assets\Scripts\Terminal\Filesystem\File.js" Line="11" Column="3" />
+      <File FileName="Assets\Scripts\Terminal\Filesystem\Programs\Helpp.js" Line="36" Column="100" />
+      <File FileName="Assets\Scripts\Terminal\Filesystem\Programs\Ls.js" Line="11" Column="38" />
+      <File FileName="Assets\Scripts\Terminal\Filesystem\Executable.js" Line="12" Column="22" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
