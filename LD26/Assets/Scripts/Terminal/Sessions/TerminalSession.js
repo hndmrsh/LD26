@@ -50,7 +50,6 @@ public class TerminalSession extends MonoBehaviour{
 				user = input;
 				history.Add("Password: ");
 				maskInput = true;
-				return;
 			} else {
 				// user has entered a password
 				
@@ -59,6 +58,8 @@ public class TerminalSession extends MonoBehaviour{
 					history.Add("");
 					maskInput = false;
 					loggedIn = true;
+					
+					history.Add(user + "@" + server + "[" + currentDir.GetName() + "]: ");
 				} else {
 					// failed.
 					
@@ -66,13 +67,15 @@ public class TerminalSession extends MonoBehaviour{
 					history.Add("");
 					user = null;
 					maskInput = false;
+					
 					history.Add("Login: ");
-					return;
 				}
 			}
 		} else if(currentProgram){
+			// a program is already running; input should be handled by that program
 			currentProgram.ParseInput(input);
 		} else {
+			// no program running; user is at a standard prompt
 			var inputTokens : String[] = input.Split(" "[0]);
 			var found : boolean = false;
 			var bin : Directory = (files.GetChild("bin/") as Directory);
@@ -85,16 +88,17 @@ public class TerminalSession extends MonoBehaviour{
 			
 			if(!found){
 				history.Add("Command not found.");
+				history.Add(user + "@" + server + "[" + currentDir.GetName() + "]: ");
 			}
 		}
 		
-		// lastly, show the standard prompt
-		history.Add(user + "@" + server + "[" + currentDir.GetName() + "]: ");
+	
 	}
 	
 	
 	function FinishedExecuting(){
 		currentProgram = null;
+		history.Add(user + "@" + server + "[" + currentDir.GetName() + "]: ");
 	}
 	
 	// getters and setters
