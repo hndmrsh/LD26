@@ -21,3 +21,15 @@ Puzzle 3:
 - when receive letter, pulls out USB drive and inserts in computer
 - presented with login prompt
 - need to use inventory's 3D model viewer to look at engraving on USB drive for user/pass
+
+Puzzle 4:
+---------
+
+- need to get access to a computer, but don't know user/pass
+- other computer doesn't accept ssh, but does support ftp push
+- some other person hanging around computer
+- use ftp to send the keylogger program (which is in the bin folder of the computer you are using) to other computer
+- after scripted event (where other person logs into the machine), you use ftp to get the keylogger back
+- check log (e.g. "keylogger log")
+- now you can use that computer! yay!
+- (before sending the keylogger, "keylogger log" shows the log of when the player logged in)
