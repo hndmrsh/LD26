@@ -17,11 +17,7 @@ public class TerminalSession extends MonoBehaviour{
 	
 	function TerminalSession(){
 		history = new Array();
-		history.Add("Welcome to MorNIX 4.2");
-		history.Add("Use the help command for a list of commands available on this system.");
-		history.Add("");
-		history.Add("Login: ");
-		
+		Welcome();
 		InitializeFilesystem();
 		currentDir = files;
 	}
@@ -30,27 +26,24 @@ public class TerminalSession extends MonoBehaviour{
 		history.Add(line);
 	}
 	
-	function Clear(){
-		history.Clear();
-	}
-	
 	function ExecuteInput(input : String){
-		if(!maskInput){
-			history[history.length - 1] += input;
-		} else {
-			history[history.length - 1] += (input.Length * '*');
-		}
+		if(input.Length > 0){
+			if(!maskInput){
+				history[history.length - 1] += input;
+			} else {
+				history[history.length - 1] += (input.Length * '*');
+			}
+		} 
 		
-		// first, check if we are logged in
 		if(!loggedIn){
 			// not logged in!
-			if(user == null){
+			if(user == null && input.Length > 0){
 				// user has entered a username
 				
-				user = input;
+				user = input.Trim();
 				history.Add("Password: ");
 				maskInput = true;
-			} else {
+			} else if(input.Length > 0){
 				// user has entered a password
 				
 				if(Login(user, input)){
@@ -59,10 +52,9 @@ public class TerminalSession extends MonoBehaviour{
 					maskInput = false;
 					loggedIn = true;
 					
-					history.Add(user + "@" + server + "[" + currentDir.GetName() + "]: ");
+					history.Add(Prompt());
 				} else {
 					// failed.
-					
 					history.Add("Login failed.");
 					history.Add("");
 					user = null;
@@ -87,8 +79,10 @@ public class TerminalSession extends MonoBehaviour{
 			}
 			
 			if(!found){
-				history.Add("Command not found.");
-				history.Add(user + "@" + server + "[" + currentDir.GetName() + "]: ");
+				if(input.Length > 0){
+					history.Add("Command not found.");
+				}
+				history.Add(Prompt());
 			}
 		}
 		
@@ -98,7 +92,7 @@ public class TerminalSession extends MonoBehaviour{
 	
 	function FinishedExecuting(){
 		currentProgram = null;
-		history.Add(user + "@" + server + "[" + currentDir.GetName() + "]: ");
+		ExecuteInput("");
 	}
 	
 	// getters and setters
@@ -115,12 +109,70 @@ public class TerminalSession extends MonoBehaviour{
 		return currentDir;
 	}
 	
+	function SetCurrentDir(dir : Directory) {
+		currentDir = dir;
+	}
+	
+	function GetRoot() : Root {
+		return files;
+	}
+	
+	function GetUser() : String {
+		return user;
+	}
+	
+	function SetUser(user : String){
+		this.user = user;
+		if(user == null){
+			loggedIn = false;
+		}
+	}
+	
+	
+	
 	// functions which should be overridden
 	function Login(user : String, pass : String) : boolean {
 		return false;
 	}
+		
+	function InitializeFilesystem(){
+		files = new Root();
 	
-	function ExecuteProgram(input : String){}
+		// programs
+		var bin : Directory = Directory("bin");
+		bin.AddFile(Ls());
+		bin.AddFile(Helpp());
+		bin.AddFile(Cd());
+		bin.AddFile(Clear());
+		bin.AddFile(Logout());
+		files.AddFile(bin);
+		
+		// inventory
+		var inv : Directory = Directory("inv");
+		// 	TODO!
+		files.AddFile(inv);
+		
+		// people in the scene (including player);
+		var usr : Directory = Directory("usr");
+		// TODO!
+		files.AddFile(usr);
+		
+		// other objects in the scene
+		var etc : Directory = Directory("etc");
+		// TODO!
+		files.AddFile(etc);
 	
-	function InitializeFilesystem(){}
+	}
+	
+	function Prompt() : String {
+		return user + "@" + server + "[" + (currentDir.IsRoot() ? "/" : currentDir.GetNameNoSlash()) + "]: ";
+	}
+	
+	function Welcome() {
+		history.Add("Welcome to MorNIX 4.2");
+		history.Add("Type \"help\" if you get stuck.");
+		history.Add("");
+		history.Add("Login: ");
+	}	
+	
 }

@@ -29,6 +29,8 @@ public class Terminal extends ScriptEvents implements ScreenSizeChangeListener {
 	
 	function OnGUI() {
 		if(on){
+			GUI.depth = 100;
+			
 			// update font size in case window size has changed
 			if(guiStyle.fontSize != GameInfo.terminalSize){
 				guiStyle.fontSize = GameInfo.terminalSize;

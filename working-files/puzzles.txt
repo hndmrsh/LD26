@@ -1,0 +1,23 @@
+Puzzle ideas:
+=============
+
+Puzzle 1:
+---------
+
+- have to kill a man
+- need to delete his file in the filesystem!
+- but, the man owns his own file and it is write protected by him (this is true of all people in the game!)
+- need to find a way to log in to system as him instead so you can delete his file.
+
+Puzzle 2:
+---------
+
+- need to get item into inventory
+- ftp into correct server to download item into inventory
+
+Puzzle 3:
+---------
+
+- when receive letter, pulls out USB drive and inserts in computer
+- presented with login prompt
+- need to use inventory's 3D model viewer to look at engraving on USB drive for user/pass

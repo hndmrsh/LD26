@@ -9,6 +9,11 @@ public class Directory extends File {
 		files = Array();
 	}
 	
+	function Directory(fileName : String, fileOwner : String, canGlobalRead : boolean, canGlobalWrite : boolean){
+		super(fileName, fileOwner, canGlobalRead, canGlobalWrite);
+		files = Array();
+	}
+	
 	function PathToFile() : String {
 		return super.PathToFile() + "/";
 	}
@@ -29,11 +34,23 @@ public class Directory extends File {
 	}
 	
 	function GetFiles() : Array {
+		// sort by name
+		files.Sort(function(a : File, b : File){
+			return a.GetName().CompareTo(b.GetName());
+		});
+		
 		return files;
+	}
+	
+	function GetNameNoSlash() : String {
+		return super.GetName();
 	}
 	
 	function GetName() : String {
 		return super.GetName() + "/";
 	}
-
+	
+	function IsRoot() : boolean {
+		return !parent;
+	}
 }

@@ -3,7 +3,7 @@
 public class Executable extends File {
 
 	function Executable(fileName : String){
-		super(fileName);
+		super(fileName, "root", true, false);
 	}
 	
 	function IllegalArguments(terminalSession : TerminalSession, args : String[]) : String{
@@ -17,5 +17,8 @@ public class Executable extends File {
 	// to override in children
 	function Execute(terminalSession : TerminalSession, args : String[]){}
 	function ParseInput(input : String){}
+	function PrintHelpText(terminalSession : TerminalSession){
+		terminalSession.WriteLine("No help text available.");
+	}
 	
 }
