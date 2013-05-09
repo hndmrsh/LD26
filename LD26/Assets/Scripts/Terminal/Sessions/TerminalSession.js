@@ -145,6 +145,7 @@ public class TerminalSession extends MonoBehaviour{
 		bin.AddFile(Cd());
 		bin.AddFile(Clear());
 		bin.AddFile(Logout());
+		bin.AddFile(Pwd());
 		files.AddFile(bin);
 		
 		// inventory
