@@ -2,7 +2,7 @@
 
 public class Pwd extends Executable {
 
-  function Pwd(){
+	function Pwd(){
 		super("pwd");
 	}
 
