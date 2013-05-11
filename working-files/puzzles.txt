@@ -33,3 +33,9 @@ Puzzle 4:
 - check log (e.g. "keylogger log")
 - now you can use that computer! yay!
 - (before sending the keylogger, "keylogger log" shows the log of when the player logged in)
+
+Puzzle 5:
+---------
+
+- something is blocking your path
+- you need to delete the file from the /etc folder so you can continue
