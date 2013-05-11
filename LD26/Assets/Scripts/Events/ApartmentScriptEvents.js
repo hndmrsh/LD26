@@ -47,7 +47,7 @@ public class ApartmentScriptEvents extends ScriptEvents {
 		Q(wait, [null, 1500]);
 		Q(playSound, [alarm]);
 		Q(wait, [null, 2000]);
-		Q(title, ["Morning", 4000]);
+		Q(title, [GameInfo.gameTitle, 4000]);
 		Q(wait, [null, 5000]);
 		Q(fadeIn, [null, 2000]);
 		Q(wait, [null, 2500]);

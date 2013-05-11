@@ -195,6 +195,29 @@ public class TerminalSession extends MonoBehaviour{
 		
 	}
 	
+	function Prompt() : String {
+		return user + "@" + server + "[" + (currentDir.IsRoot() ? "/" : currentDir.GetNameNoSlash()) + "]: ";
+	}
+	
+	function Welcome() {
+		history.Add("Welcome to " + GameInfo.osName + " 4.2");
+		history.Add("Type \"help\" if you get stuck.");
+		history.Add("");
+		history.Add("Login: ");
+	}
+	
+	function AddFile(fileToAdd : File, location : String){
+		var dest : Directory = FindFile(location);
+		if(!dest || !(dest instanceof Directory)){
+			print("ERROR! tried to add file to a non-directory");
+		} else {
+			dest.AddFile(fileToAdd);
+		}
+	}
+	
+	
+	// terminal scrolling functions
+	
 	function ScrollUp(maxLines : int) {
 		print("scroll up");
 		if(scrollOffset > (-history.length + maxLines)) { 
@@ -212,6 +235,9 @@ public class TerminalSession extends MonoBehaviour{
 	function ScrollToBottom(){
 		scrollOffset = 0;
 	}
+	
+	
+	
 	
 	// getters and setters
 	
@@ -252,6 +278,9 @@ public class TerminalSession extends MonoBehaviour{
 	
 	
 	
+	
+	
+	
 	// functions which should be overridden
 	function Login(user : String, pass : String) : boolean {
 		return false;
@@ -282,22 +311,16 @@ public class TerminalSession extends MonoBehaviour{
 		files.AddFile(usr);
 		
 		// other objects in the scene
-		var etc : Directory = Directory("etc");
+		var etc : Directory = Directory("etc", "root", true, false);
+		// TODO!
+		// files added to etc from the scene should be write-protected by default,
+		// but this can be changed for certain files if necessary.
 		
 		// TODO!
 		files.AddFile(etc);
 	
 	}
 	
-	function Prompt() : String {
-		return user + "@" + server + "[" + (currentDir.IsRoot() ? "/" : currentDir.GetNameNoSlash()) + "]: ";
-	}
-	
-	function Welcome() {
-		history.Add("Welcome to " + GameInfo.osName + " 4.2");
-		history.Add("Type \"help\" if you get stuck.");
-		history.Add("");
-		history.Add("Login: ");
-	}	
+		
 	
 }
