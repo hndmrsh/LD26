@@ -66,12 +66,15 @@
      <Compile Include="Assets\Scripts\Terminal\Filesystem\Directory.js" />
      <Compile Include="Assets\Scripts\Terminal\Filesystem\Executable.js" />
      <Compile Include="Assets\Scripts\Terminal\Filesystem\File.js" />
+     <Compile Include="Assets\Scripts\Terminal\Filesystem\Programs\Cat.js" />
      <Compile Include="Assets\Scripts\Terminal\Filesystem\Programs\Cd.js" />
      <Compile Include="Assets\Scripts\Terminal\Filesystem\Programs\Clear.js" />
      <Compile Include="Assets\Scripts\Terminal\Filesystem\Programs\Helpp.js" />
      <Compile Include="Assets\Scripts\Terminal\Filesystem\Programs\Logout.js" />
      <Compile Include="Assets\Scripts\Terminal\Filesystem\Programs\Ls.js" />
+     <Compile Include="Assets\Scripts\Terminal\Filesystem\Programs\Pwd.js" />
      <Compile Include="Assets\Scripts\Terminal\Filesystem\Root.js" />
+     <Compile Include="Assets\Scripts\Terminal\Filesystem\TextFile.js" />
      <Compile Include="Assets\Scripts\Terminal\Sessions\ApartmentTerminalSession.js" />
      <Compile Include="Assets\Scripts\Terminal\Sessions\TerminalSession.js" />
      <Compile Include="Assets\Scripts\Terminal\Terminal.js" />

@@ -14,6 +14,12 @@ public class Executable extends File {
 		terminalSession.WriteLine("Illegal arguments: " + illegal);
 	}
 
+	function GetPermissions() : String {
+		var perms : String = super.GetPermissions();
+		
+		return perms.Substring(0, perms.Length - 1) + "x";
+	}
+	
 	// to override in children
 	function Execute(terminalSession : TerminalSession, args : String[]){}
 	function ParseInput(input : String){}

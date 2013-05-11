@@ -15,6 +15,8 @@ public class TerminalSession extends MonoBehaviour{
 	
 	protected var currentProgram : Executable;
 	
+	private var scrollOffset : int = 0;
+	
 	function TerminalSession(){
 		history = new Array();
 		Welcome();
@@ -27,6 +29,8 @@ public class TerminalSession extends MonoBehaviour{
 	}
 	
 	function ExecuteInput(input : String){
+		input = input.TrimEnd();
+		
 		if(input.Length > 0){
 			if(!maskInput){
 				history[history.length - 1] += input;
@@ -70,11 +74,23 @@ public class TerminalSession extends MonoBehaviour{
 			// no program running; user is at a standard prompt
 			var inputTokens : String[] = input.Split(" "[0]);
 			var found : boolean = false;
+			
+			// check the bin directory for an executable program
 			var bin : Directory = (files.GetChild("bin/") as Directory);
 			for(var f : File in bin.GetFiles()){
 				if(f instanceof Executable && inputTokens[0] == f.GetName()){
 					(f as Executable).Execute(this, inputTokens);
 					found = true;
+				}
+			}
+			
+			// if not found, try one in the current directory
+			if(!found){
+				for(var f : File in currentDir.GetFiles()){
+					if(f instanceof Executable && inputTokens[0] == f.GetName()){
+						(f as Executable).Execute(this, inputTokens);
+						found = true;
+					}
 				}
 			}
 			
@@ -93,6 +109,108 @@ public class TerminalSession extends MonoBehaviour{
 	function FinishedExecuting(){
 		currentProgram = null;
 		ExecuteInput("");
+	}
+	
+	
+	function FindFile(target : String) : File {
+		var src : Directory;
+			
+		//var target : String = args[1];
+		
+		// special case: '/'
+		if(target == "/"){
+			return files;
+		} else {
+			var path : String;
+			if(target.StartsWith("/")){
+				src = files;
+				path = target.Substring(1);
+			} else {
+				src = currentDir;
+				path = target;
+			}
+			
+			if(path.EndsWith("/")){
+				path = path.Substring(0, path.Length - 1);
+			}
+			
+			return FindFile(src, path);
+			
+		}	
+	}
+	
+	private function FindFile(src : Directory, target : String) : File {
+		//if(src == null){
+			// we are at an invalid location (e.g. ".." was passed at the root!)
+			// or the previous directory was not found
+			//return null;
+		//} else if(target == null){
+		if(target == null){
+			return src;
+		}
+		
+		var dirToSearch : String;
+		var remainder : String;
+		
+		var splitPoint : int = target.IndexOf("/");
+		if(splitPoint > -1){
+			dirToSearch = target.Substring(0, splitPoint);
+			remainder = target.Substring(splitPoint+1);
+		} else {
+			// we are at the last directory to navigate to!
+			dirToSearch = target;
+			remainder == null;
+		}
+		
+		// special cases '.' and '..'
+		if(dirToSearch == "."){
+			return FindFile(src, remainder);
+		} else if(dirToSearch == ".."){
+			return FindFile(src.GetParent(), remainder);
+		}
+		
+		// locate the requested file or directory
+		var requested : File = null;
+		var isDir : boolean = false;
+		for(var file : File in src.GetFiles()){
+			if(file instanceof Directory && (file as Directory).GetNameNoSlash() == dirToSearch){
+				requested = file;
+				isDir = true;
+			} else if (file.GetName() == dirToSearch){
+				requested = file;
+			}
+		}
+		
+		if(requested && requested.TryRead(this)){
+			if(isDir){
+				return FindFile((requested as Directory), remainder);
+			} else if(remainder == null){
+				return requested;
+			} else {
+				return null;
+			}
+		} else {
+			return null;
+		}
+		
+	}
+	
+	function ScrollUp(maxLines : int) {
+		print("scroll up");
+		if(scrollOffset > (-history.length + maxLines)) { 
+			scrollOffset--;
+		}
+	}
+	
+	function ScrollDown(){
+		print("scroll down");
+		if(scrollOffset < 0) { 
+			scrollOffset++;
+		}
+	}
+	
+	function ScrollToBottom(){
+		scrollOffset = 0;
 	}
 	
 	// getters and setters
@@ -128,6 +246,10 @@ public class TerminalSession extends MonoBehaviour{
 		}
 	}
 	
+	function GetScrollOffset() : int {
+		return scrollOffset;
+	}
+	
 	
 	
 	// functions which should be overridden
@@ -146,6 +268,7 @@ public class TerminalSession extends MonoBehaviour{
 		bin.AddFile(Clear());
 		bin.AddFile(Logout());
 		bin.AddFile(Pwd());
+		bin.AddFile(Cat());
 		files.AddFile(bin);
 		
 		// inventory
@@ -160,6 +283,7 @@ public class TerminalSession extends MonoBehaviour{
 		
 		// other objects in the scene
 		var etc : Directory = Directory("etc");
+		
 		// TODO!
 		files.AddFile(etc);
 	
@@ -170,7 +294,7 @@ public class TerminalSession extends MonoBehaviour{
 	}
 	
 	function Welcome() {
-		history.Add("Welcome to MorNIX 4.2");
+		history.Add("Welcome to " + GameInfo.osName + " 4.2");
 		history.Add("Type \"help\" if you get stuck.");
 		history.Add("");
 		history.Add("Login: ");

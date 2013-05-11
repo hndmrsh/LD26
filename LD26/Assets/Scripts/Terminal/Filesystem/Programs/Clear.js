@@ -8,6 +8,7 @@ public class Clear extends Executable {
 	
 	function Execute(terminalSession : TerminalSession, args : String[]){
 		terminalSession.GetHistory().Clear();
+		terminalSession.ScrollToBottom();
 		terminalSession.FinishedExecuting();
 	}
 	

@@ -6,6 +6,7 @@ public class Terminal extends ScriptEvents implements ScreenSizeChangeListener {
 
 	var guiStyle : GUIStyle;
 	var terminalSession : TerminalSession;
+	var scrollDelay : int;
 	
 	private var x : int;
 	private var y : int;
@@ -14,7 +15,6 @@ public class Terminal extends ScriptEvents implements ScreenSizeChangeListener {
 	
 	private var maxLines : int;
 	private var maxWidth : int;
-	
 	
 	private var on : boolean;
 	
@@ -42,17 +42,19 @@ public class Terminal extends ScriptEvents implements ScreenSizeChangeListener {
 			var numLines : int = Mathf.Min(maxLines, terminalSession.GetHistory().length);
 			
 			for(var i : int = numLines - 1; i >= 0; i--){
-				output += terminalSession.GetHistory()[terminalSession.GetHistory().length - i - 1];
+				output += terminalSession.GetHistory()[terminalSession.GetHistory().length - i - 1 + terminalSession.GetScrollOffset()];
 				if(i != 0){
 					output += "\n";
 				}
 			}
 			
-			if(!terminalSession.IsMaskInput()){
-				output += keyboardBuffer;
-			} else {
-				//for(var j : int = 0; j < keyboardBuffer.Length
-				output += keyboardBuffer.Length * '*';
+			if(terminalSession.GetScrollOffset() == 0){
+				if(!terminalSession.IsMaskInput()){
+					output += keyboardBuffer;
+				} else {
+					//for(var j : int = 0; j < keyboardBuffer.Length
+					output += keyboardBuffer.Length * '*';
+				}
 			}
 			
 			GUI.Box(Rect(x, y, width, height), output, guiStyle); // Temporary!!!!
@@ -67,6 +69,7 @@ public class Terminal extends ScriptEvents implements ScreenSizeChangeListener {
 	}
 	
 	function OnScreenSizeChanged(){
+		// define new terminal screen geometry
 		x = Screen.width / 4.6;
 		y = Screen.height / 8.5;
 		width = Screen.width - (x*2);
@@ -80,7 +83,7 @@ public class Terminal extends ScriptEvents implements ScreenSizeChangeListener {
 	
 	
 	// key checking
-	
+	private var lastTriggered : int;
 	function Update() {
 		if(player.IsUsingTerminal() && player.IsAcceptingInput()){
 			if(Input.inputString != null && Input.inputString.Length > 0){
@@ -105,8 +108,19 @@ public class Terminal extends ScriptEvents implements ScreenSizeChangeListener {
 						}
 					}
 				}
+			} else if (Input.GetKey(KeyCode.UpArrow) || Input.GetAxis("Scroll Terminal Display") > 0) {
+				if(lastTriggered == 0){
+					terminalSession.ScrollUp(maxLines);
+				}
+				lastTriggered = (lastTriggered + 1) % scrollDelay;
 				
-				
+			} else if (Input.GetKey(KeyCode.DownArrow) || Input.GetAxis("Scroll Terminal Display") < 0) {
+				if(lastTriggered == 0){
+					terminalSession.ScrollDown();
+				}
+				lastTriggered = (lastTriggered + 1) % scrollDelay;
+			} else {
+				lastTriggered = 0;
 			}
 		}
 	}

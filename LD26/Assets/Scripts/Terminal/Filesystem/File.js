@@ -58,6 +58,8 @@ public class File {
 			retVal += "-";
 		}
 		
+		retVal += "-";
+		
 		return retVal;
 	}
 	
@@ -65,7 +67,7 @@ public class File {
 		return parent;
 	}
 	
-	function TryRead(terminalSession : TerminalSession){
+	function TryRead(terminalSession : TerminalSession) : boolean {
 		var success : boolean = globalRead || owner == terminalSession.GetUser();
 		if(!success){
 			terminalSession.WriteLine("Error reading " + name + ": permission denied.");
@@ -73,7 +75,7 @@ public class File {
 		return success;
 	}
 	
-	function TryWrite(terminalSession : TerminalSession){
+	function TryWrite(terminalSession : TerminalSession) : boolean {
 		var success : boolean = globalWrite || owner == terminalSession.GetUser();
 		if(!success){
 			terminalSession.WriteLine("Error writing " + name + ": permission denied.");

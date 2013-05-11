@@ -7,7 +7,7 @@ public class Pwd extends Executable {
 	}
 
 	function Execute(terminalSession : TerminalSession, args : String[]){
-		terminalSession.WriteLine(terminalSession.GetCurrentDirectory().PathToFile());
+		terminalSession.WriteLine(terminalSession.GetCurrentDir().PathToFile());
 		terminalSession.FinishedExecuting();
 	}
 
