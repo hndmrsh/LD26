@@ -3,7 +3,7 @@
 public class Executable extends File {
 
 	function Executable(fileName : String){
-		super(fileName, "root", true, false);
+		super(fileName, "root", false, false);
 	}
 	
 	function IllegalArguments(terminalSession : TerminalSession, args : String[]) : String{

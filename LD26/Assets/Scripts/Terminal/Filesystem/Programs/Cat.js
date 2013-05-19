@@ -21,6 +21,7 @@ public class Cat extends Executable {
 				for(var line : String in (f as TextFile).GetContents()){
 					terminalSession.WriteLine(line);
 				}
+				terminalSession.PostCat(f);
 			}
 		}
 		

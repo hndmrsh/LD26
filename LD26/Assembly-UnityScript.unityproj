@@ -72,6 +72,7 @@
      <Compile Include="Assets\Scripts\Terminal\Filesystem\Programs\Helpp.js" />
      <Compile Include="Assets\Scripts\Terminal\Filesystem\Programs\Logout.js" />
      <Compile Include="Assets\Scripts\Terminal\Filesystem\Programs\Ls.js" />
+     <Compile Include="Assets\Scripts\Terminal\Filesystem\Programs\Mv.js" />
      <Compile Include="Assets\Scripts\Terminal\Filesystem\Programs\Pwd.js" />
      <Compile Include="Assets\Scripts\Terminal\Filesystem\Root.js" />
      <Compile Include="Assets\Scripts\Terminal\Filesystem\TextFile.js" />

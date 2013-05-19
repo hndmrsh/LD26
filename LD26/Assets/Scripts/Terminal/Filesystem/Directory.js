@@ -1,17 +1,19 @@
 #pragma strict
 
+import System.Collections.Generic;
+
 public class Directory extends File {
 	
-	protected var files : Array;
+	protected var files : List.<File>;
 	
 	function Directory(fileName : String){
 		super(fileName);
-		files = Array();
+		files = List.<File>();
 	}
 	
 	function Directory(fileName : String, fileOwner : String, canGlobalRead : boolean, canGlobalWrite : boolean){
 		super(fileName, fileOwner, canGlobalRead, canGlobalWrite);
-		files = Array();
+		files = List.<File>();
 	}
 	
 	function PathToFile() : String {
@@ -21,6 +23,22 @@ public class Directory extends File {
 	function AddFile(file : File){
 		file.SetParent(this);
 		files.Add(file);
+	}
+	
+	function RemoveFile(file : File){
+		var toRemove : int = -1;
+		for(var i : int = 0; i < files.Count; i++){
+			print(i + ":" + files[i].PathToFile());
+			print(i + ":" + file.PathToFile());
+			if(files[i].PathToFile() == file.PathToFile()){
+				toRemove = i;
+				break;
+			}
+		}
+		
+		if(toRemove > -1){
+			files.RemoveAt(toRemove);
+		}
 	}
 	
 	function GetChild(childName : String) : File {
@@ -33,7 +51,7 @@ public class Directory extends File {
 		return null;
 	}
 	
-	function GetFiles() : Array {
+	function GetFiles() : List.<File> {
 		// sort by name
 		files.Sort(function(a : File, b : File){
 			return a.GetName().CompareTo(b.GetName());

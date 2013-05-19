@@ -1,7 +1,5 @@
 #pragma strict
 
-import System.Collections.Generic;
-
 public class Player extends MonoBehaviour implements ScreenSizeChangeListener{
 	
 	var scriptEvents : ScriptEvents;

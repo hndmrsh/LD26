@@ -1,7 +1,5 @@
 #pragma strict
 
-import System.Collections.Generic;
-
 public class Terminal extends ScriptEvents implements ScreenSizeChangeListener {
 
 	var guiStyle : GUIStyle;
@@ -39,10 +37,10 @@ public class Terminal extends ScriptEvents implements ScreenSizeChangeListener {
 			}
 		
 			var output : String = "";
-			var numLines : int = Mathf.Min(maxLines, terminalSession.GetHistory().length);
+			var numLines : int = Mathf.Min(maxLines, terminalSession.GetHistory().Count);
 			
 			for(var i : int = numLines - 1; i >= 0; i--){
-				output += terminalSession.GetHistory()[terminalSession.GetHistory().length - i - 1 + terminalSession.GetScrollOffset()];
+				output += terminalSession.GetHistory()[terminalSession.GetHistory().Count - i - 1 + terminalSession.GetScrollOffset()];
 				if(i != 0){
 					output += "\n";
 				}
@@ -97,13 +95,11 @@ public class Terminal extends ScriptEvents implements ScreenSizeChangeListener {
 						keyboardBuffer = "";
 					} else if(c == '\b'){
 						print("TERM: backspace");
-						print("TERM: before = " + keyboardBuffer);
 						if(keyboardBuffer.Length > 0){
 							keyboardBuffer = keyboardBuffer.Remove(keyboardBuffer.Length - 1);
 						}
-						print("TERM: after = " + keyboardBuffer);
 					} else {
-						if((keyboardBuffer.Length + (terminalSession.GetHistory()[terminalSession.GetHistory().length - 1] as String).Length) < maxWidth){
+						if((keyboardBuffer.Length + (terminalSession.GetHistory()[terminalSession.GetHistory().Count - 1] as String).Length) < maxWidth){
 							keyboardBuffer += c;
 						}
 					}

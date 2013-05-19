@@ -1,8 +1,23 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Terminal\Sessions\ApartmentTerminalSession.js">
+    <Files>
+      <File FileName="Assets\Scripts\Terminal\Filesystem\Programs\Cat.js" Line="24" Column="32" />
+      <File FileName="Assets\Scripts\Terminal\Filesystem\Programs\Mv.js" Line="21" Column="49" />
+      <File FileName="Assets\Scripts\Terminal\Filesystem\Executable.js" Line="15" Column="3" />
+      <File FileName="Assets\Scripts\Terminal\Filesystem\Directory.js" Line="22" Column="2" />
+      <File FileName="Assets\Scripts\Terminal\Filesystem\File.js" Line="3" Column="19" />
+      <File FileName="Assets\Scripts\Terminal\Terminal.js" Line="102" Column="99" />
+      <File FileName="Assets\Scripts\Player.js" Line="7" Column="2" />
+      <File FileName="Assets\Scripts\Terminal\Sessions\ApartmentTerminalSession.js" Line="45" Column="35" />
+      <File FileName="Assets\Scripts\Terminal\Sessions\TerminalSession.js" Line="333" Column="30" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
+    <BreakpointStore>
+      <Breakpoint file="E:\Projects\GitHub\LD26\LD26\Assets\Scripts\Terminal\Filesystem\Directory.js" line="30" />
+      <Breakpoint file="E:\Projects\GitHub\LD26\LD26\Assets\Scripts\Terminal\Filesystem\Directory.js" line="33" />
+    </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
 </Properties>

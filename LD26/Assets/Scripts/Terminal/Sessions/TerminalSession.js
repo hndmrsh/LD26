@@ -1,8 +1,10 @@
 #pragma strict
 
-public class TerminalSession extends MonoBehaviour{
+import System.Collections.Generic;
 
-	private var history : Array;
+public class TerminalSession extends ScriptEvents {
+
+	private var history : List.<String>;
 	
 	protected var user : String;
 	protected var server : String;
@@ -18,7 +20,7 @@ public class TerminalSession extends MonoBehaviour{
 	private var scrollOffset : int = 0;
 	
 	function TerminalSession(){
-		history = new Array();
+		history = List.<String>();
 		Welcome();
 		InitializeFilesystem();
 		currentDir = files;
@@ -33,9 +35,9 @@ public class TerminalSession extends MonoBehaviour{
 		
 		if(input.Length > 0){
 			if(!maskInput){
-				history[history.length - 1] += input;
+				history[history.Count - 1] += input;
 			} else {
-				history[history.length - 1] += (input.Length * '*');
+				history[history.Count - 1] += (input.Length * '*');
 			}
 		} 
 		
@@ -73,28 +75,28 @@ public class TerminalSession extends MonoBehaviour{
 		} else {
 			// no program running; user is at a standard prompt
 			var inputTokens : String[] = input.Split(" "[0]);
-			var found : boolean = false;
-			
+
 			// check the bin directory for an executable program
+			// if found, load as current program
 			var bin : Directory = (files.GetChild("bin/") as Directory);
 			for(var f : File in bin.GetFiles()){
 				if(f instanceof Executable && inputTokens[0] == f.GetName()){
-					(f as Executable).Execute(this, inputTokens);
-					found = true;
+					currentProgram = (f as Executable);
 				}
 			}
 			
-			// if not found, try one in the current directory
-			if(!found){
+			// if the program wasn't found, try looking in the current directory
+			if(!currentProgram){
 				for(var f : File in currentDir.GetFiles()){
 					if(f instanceof Executable && inputTokens[0] == f.GetName()){
-						(f as Executable).Execute(this, inputTokens);
-						found = true;
+						currentProgram = (f as Executable);
 					}
 				}
 			}
 			
-			if(!found){
+			if(currentProgram){
+				currentProgram.Execute(this, inputTokens);
+			} else {
 				if(input.Length > 0){
 					history.Add("Command not found.");
 				}
@@ -220,7 +222,7 @@ public class TerminalSession extends MonoBehaviour{
 	
 	function ScrollUp(maxLines : int) {
 		print("scroll up");
-		if(scrollOffset > (-history.length + maxLines)) { 
+		if(scrollOffset > (-history.Count + maxLines)) { 
 			scrollOffset--;
 		}
 	}
@@ -241,7 +243,7 @@ public class TerminalSession extends MonoBehaviour{
 	
 	// getters and setters
 	
-	function GetHistory() : Array{
+	function GetHistory() : List.<String> {
 		return history;
 	}
 	
@@ -290,7 +292,7 @@ public class TerminalSession extends MonoBehaviour{
 		files = new Root();
 	
 		// programs
-		var bin : Directory = Directory("bin");
+		var bin : Directory = Directory("bin", "root", true, false);
 		bin.AddFile(Ls());
 		bin.AddFile(Helpp());
 		bin.AddFile(Cd());
@@ -298,6 +300,7 @@ public class TerminalSession extends MonoBehaviour{
 		bin.AddFile(Logout());
 		bin.AddFile(Pwd());
 		bin.AddFile(Cat());
+		bin.AddFile(Mv());
 		files.AddFile(bin);
 		
 		// inventory
@@ -321,6 +324,19 @@ public class TerminalSession extends MonoBehaviour{
 	
 	}
 	
-		
+	// the following functions are called before when a file is modified on the file system,
+	// and can be overridden to prevent the user from doing things he/she shouldn't.
+	function ValidateMove(src : File, dest : Directory) : boolean {
+		return true;
+	}
 	
+	function ValidateRemove(file : File) : boolean {
+		return true;
+	}
+	
+	function ValidateRename(file : File) : boolean {
+		return true;
+	}
+	
+	function PostCat(file : File) {}
 }
