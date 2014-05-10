@@ -4,8 +4,10 @@
 
 *Temp*
 git-ignore/
-
-
+*/Temp/
+*/Obj/
+*/UnityGenerated/
+*/Library/
 
 
 
