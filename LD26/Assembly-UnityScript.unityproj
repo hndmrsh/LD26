@@ -12,13 +12,14 @@
 	<AssemblyName>Assembly-UnityScript</AssemblyName>
 	<TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
 	<FileAlignment>512</FileAlignment>
+	<BaseDirectory>Assets</BaseDirectory>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
 	<DebugSymbols>true</DebugSymbols>
 	<DebugType>full</DebugType>
 	<Optimize>false</Optimize>
 	<OutputPath>Temp\bin\Debug\</OutputPath>
-	<DefineConstants>DEBUG;TRACE;UNITY_STANDALONE_WIN;ENABLE_MICROPHONE;ENABLE_IMAGEEFFECTS;ENABLE_WEBCAM;ENABLE_AUDIO_FMOD;UNITY_STANDALONE;ENABLE_NETWORK;ENABLE_MONO;ENABLE_PHYSICS;ENABLE_TERRAIN;ENABLE_CACHING;ENABLE_SUBSTANCE;ENABLE_GENERICS;ENABLE_CLOTH;ENABLE_MOVIES;ENABLE_AUDIO;ENABLE_WWW;ENABLE_SHADOWS;ENABLE_DUCK_TYPING;UNITY_4_1_2;UNITY_4_1;ENABLE_PROFILER;UNITY_EDITOR</DefineConstants>
+	<DefineConstants>DEBUG;TRACE;UNITY_STANDALONE_WIN;ENABLE_MICROPHONE;ENABLE_TEXTUREID_MAP;ENABLE_AUDIO_FMOD;UNITY_STANDALONE;ENABLE_MONO;ENABLE_SPRITES;ENABLE_TERRAIN;ENABLE_GENERICS;ENABLE_SUBSTANCE;INCLUDE_WP8SUPPORT;ENABLE_MOVIES;ENABLE_WWW;ENABLE_IMAGEEFFECTS;ENABLE_WEBCAM;INCLUDE_METROSUPPORT;RENDER_SOFTWARE_CURSOR;ENABLE_NETWORK;ENABLE_PHYSICS;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_2D_PHYSICS;ENABLE_SHADOWS;ENABLE_AUDIO;ENABLE_NAVMESH_CARVING;ENABLE_DUCK_TYPING;ENABLE_SINGLE_INSTANCE_BUILD_SETTING;UNITY_4_3_2;UNITY_4_3;ENABLE_PROFILER;UNITY_EDITOR;UNITY_EDITOR_WIN</DefineConstants>
 	<ErrorReport>prompt</ErrorReport>
 	<WarningLevel>4</WarningLevel>
 	<NoWarn>0169</NoWarn>
@@ -36,6 +37,7 @@
 	<Reference Include="System" />
     <Reference Include="System.XML" />
 	<Reference Include="System.Core" />
+	<Reference Include="System.Xml.Linq" />
 	<Reference Include="UnityEngine">
 	  <HintPath>C:/Program Files (x86)/Unity/Editor/Data/Managed/UnityEngine.dll</HintPath>
 	</Reference>
@@ -44,41 +46,41 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Scripts\Events\ApartmentScriptEvents.js" />
-     <Compile Include="Assets\Scripts\Events\ScriptEvents.js" />
-     <Compile Include="Assets\Scripts\GameInfo.js" />
-     <Compile Include="Assets\Scripts\HalogenLight.js" />
-     <Compile Include="Assets\Scripts\Interactable.js" />
-     <Compile Include="Assets\Scripts\Inventory.js" />
-     <Compile Include="Assets\Scripts\Objects\AlarmClock.js" />
-     <Compile Include="Assets\Scripts\Objects\Bed.js" />
-     <Compile Include="Assets\Scripts\Objects\Blinds.js" />
-     <Compile Include="Assets\Scripts\Objects\Computer.js" />
-     <Compile Include="Assets\Scripts\Objects\Door.js" />
-     <Compile Include="Assets\Scripts\Objects\Drawers.js" />
-     <Compile Include="Assets\Scripts\Objects\Lights.js" />
-     <Compile Include="Assets\Scripts\Objects\Lightswitch.js" />
-     <Compile Include="Assets\Scripts\Objects\Monitor.js" />
-     <Compile Include="Assets\Scripts\Objects\Wardrobe.js" />
-     <Compile Include="Assets\Scripts\Player.js" />
-     <Compile Include="Assets\Scripts\PoliceLights.js" />
-     <Compile Include="Assets\Scripts\ScreenSizeChangeListener.js" />
-     <Compile Include="Assets\Scripts\Terminal\Filesystem\Directory.js" />
-     <Compile Include="Assets\Scripts\Terminal\Filesystem\Executable.js" />
-     <Compile Include="Assets\Scripts\Terminal\Filesystem\File.js" />
-     <Compile Include="Assets\Scripts\Terminal\Filesystem\Programs\Cat.js" />
-     <Compile Include="Assets\Scripts\Terminal\Filesystem\Programs\Cd.js" />
-     <Compile Include="Assets\Scripts\Terminal\Filesystem\Programs\Clear.js" />
-     <Compile Include="Assets\Scripts\Terminal\Filesystem\Programs\Helpp.js" />
-     <Compile Include="Assets\Scripts\Terminal\Filesystem\Programs\Logout.js" />
-     <Compile Include="Assets\Scripts\Terminal\Filesystem\Programs\Ls.js" />
-     <Compile Include="Assets\Scripts\Terminal\Filesystem\Programs\Mv.js" />
-     <Compile Include="Assets\Scripts\Terminal\Filesystem\Programs\Pwd.js" />
-     <Compile Include="Assets\Scripts\Terminal\Filesystem\Root.js" />
-     <Compile Include="Assets\Scripts\Terminal\Filesystem\TextFile.js" />
-     <Compile Include="Assets\Scripts\Terminal\Sessions\ApartmentTerminalSession.js" />
-     <Compile Include="Assets\Scripts\Terminal\Sessions\TerminalSession.js" />
-     <Compile Include="Assets\Scripts\Terminal\Terminal.js" />
+     <Compile Include="Assets\OldScripts\Events\ApartmentScriptEvents.js" />
+     <Compile Include="Assets\OldScripts\Events\ScriptEvents.js" />
+     <Compile Include="Assets\OldScripts\GameInfo.js" />
+     <Compile Include="Assets\OldScripts\HalogenLight.js" />
+     <Compile Include="Assets\OldScripts\Interactable.js" />
+     <Compile Include="Assets\OldScripts\Inventory.js" />
+     <Compile Include="Assets\OldScripts\Objects\AlarmClock.js" />
+     <Compile Include="Assets\OldScripts\Objects\Bed.js" />
+     <Compile Include="Assets\OldScripts\Objects\Blinds.js" />
+     <Compile Include="Assets\OldScripts\Objects\Computer.js" />
+     <Compile Include="Assets\OldScripts\Objects\Door.js" />
+     <Compile Include="Assets\OldScripts\Objects\Drawers.js" />
+     <Compile Include="Assets\OldScripts\Objects\Lights.js" />
+     <Compile Include="Assets\OldScripts\Objects\Lightswitch.js" />
+     <Compile Include="Assets\OldScripts\Objects\Monitor.js" />
+     <Compile Include="Assets\OldScripts\Objects\Wardrobe.js" />
+     <Compile Include="Assets\OldScripts\Player.js" />
+     <Compile Include="Assets\OldScripts\PoliceLights.js" />
+     <Compile Include="Assets\OldScripts\ScreenSizeChangeListener.js" />
+     <Compile Include="Assets\OldScripts\Terminal\Filesystem\Directory.js" />
+     <Compile Include="Assets\OldScripts\Terminal\Filesystem\Executable.js" />
+     <Compile Include="Assets\OldScripts\Terminal\Filesystem\File.js" />
+     <Compile Include="Assets\OldScripts\Terminal\Filesystem\Programs\Cat.js" />
+     <Compile Include="Assets\OldScripts\Terminal\Filesystem\Programs\Cd.js" />
+     <Compile Include="Assets\OldScripts\Terminal\Filesystem\Programs\Clear.js" />
+     <Compile Include="Assets\OldScripts\Terminal\Filesystem\Programs\Helpp.js" />
+     <Compile Include="Assets\OldScripts\Terminal\Filesystem\Programs\Logout.js" />
+     <Compile Include="Assets\OldScripts\Terminal\Filesystem\Programs\Ls.js" />
+     <Compile Include="Assets\OldScripts\Terminal\Filesystem\Programs\Mv.js" />
+     <Compile Include="Assets\OldScripts\Terminal\Filesystem\Programs\Pwd.js" />
+     <Compile Include="Assets\OldScripts\Terminal\Filesystem\Root.js" />
+     <Compile Include="Assets\OldScripts\Terminal\Filesystem\TextFile.js" />
+     <Compile Include="Assets\OldScripts\Terminal\Sessions\ApartmentTerminalSession.js" />
+     <Compile Include="Assets\OldScripts\Terminal\Sessions\TerminalSession.js" />
+     <Compile Include="Assets\OldScripts\Terminal\Terminal.js" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

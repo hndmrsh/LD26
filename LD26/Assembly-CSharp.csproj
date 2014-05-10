@@ -5,11 +5,11 @@
 	<Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
 	<ProductVersion>10.0.20506</ProductVersion>
 	<SchemaVersion>2.0</SchemaVersion>
-	<ProjectGuid>{8B301A84-D897-CF07-1558-6D78DCE831EE}</ProjectGuid>
+	<ProjectGuid>{C7DDADCC-6F77-6AAB-60D5-0B5888DDD8D5}</ProjectGuid>
 	<OutputType>Library</OutputType>
 	<AppDesignerFolder>Properties</AppDesignerFolder>
 	<RootNamespace></RootNamespace>
-	<AssemblyName>Assembly-UnityScript</AssemblyName>
+	<AssemblyName>Assembly-CSharp</AssemblyName>
 	<TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
 	<FileAlignment>512</FileAlignment>
 	<BaseDirectory>Assets</BaseDirectory>
@@ -46,41 +46,11 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\OldScripts\Events\ApartmentScriptEvents.js" />
-     <Compile Include="Assets\OldScripts\Events\ScriptEvents.js" />
-     <Compile Include="Assets\OldScripts\GameInfo.js" />
-     <Compile Include="Assets\OldScripts\HalogenLight.js" />
-     <Compile Include="Assets\OldScripts\Interactable.js" />
-     <Compile Include="Assets\OldScripts\Inventory.js" />
-     <Compile Include="Assets\OldScripts\Objects\AlarmClock.js" />
-     <Compile Include="Assets\OldScripts\Objects\Bed.js" />
-     <Compile Include="Assets\OldScripts\Objects\Blinds.js" />
-     <Compile Include="Assets\OldScripts\Objects\Computer.js" />
-     <Compile Include="Assets\OldScripts\Objects\Door.js" />
-     <Compile Include="Assets\OldScripts\Objects\Drawers.js" />
-     <Compile Include="Assets\OldScripts\Objects\Lights.js" />
-     <Compile Include="Assets\OldScripts\Objects\Lightswitch.js" />
-     <Compile Include="Assets\OldScripts\Objects\Monitor.js" />
-     <Compile Include="Assets\OldScripts\Objects\Wardrobe.js" />
-     <Compile Include="Assets\OldScripts\Player.js" />
-     <Compile Include="Assets\OldScripts\PoliceLights.js" />
-     <Compile Include="Assets\OldScripts\ScreenSizeChangeListener.js" />
-     <Compile Include="Assets\OldScripts\Terminal\Filesystem\Directory.js" />
-     <Compile Include="Assets\OldScripts\Terminal\Filesystem\Executable.js" />
-     <Compile Include="Assets\OldScripts\Terminal\Filesystem\File.js" />
-     <Compile Include="Assets\OldScripts\Terminal\Filesystem\Programs\Cat.js" />
-     <Compile Include="Assets\OldScripts\Terminal\Filesystem\Programs\Cd.js" />
-     <Compile Include="Assets\OldScripts\Terminal\Filesystem\Programs\Clear.js" />
-     <Compile Include="Assets\OldScripts\Terminal\Filesystem\Programs\Helpp.js" />
-     <Compile Include="Assets\OldScripts\Terminal\Filesystem\Programs\Logout.js" />
-     <Compile Include="Assets\OldScripts\Terminal\Filesystem\Programs\Ls.js" />
-     <Compile Include="Assets\OldScripts\Terminal\Filesystem\Programs\Mv.js" />
-     <Compile Include="Assets\OldScripts\Terminal\Filesystem\Programs\Pwd.js" />
-     <Compile Include="Assets\OldScripts\Terminal\Filesystem\Root.js" />
-     <Compile Include="Assets\OldScripts\Terminal\Filesystem\TextFile.js" />
-     <Compile Include="Assets\OldScripts\Terminal\Sessions\ApartmentTerminalSession.js" />
-     <Compile Include="Assets\OldScripts\Terminal\Sessions\TerminalSession.js" />
-     <Compile Include="Assets\OldScripts\Terminal\Terminal.js" />
+     <Compile Include="Assets\Scripts\GameInfo.cs" />
+     <Compile Include="Assets\Scripts\HalogenLight.cs" />
+     <Compile Include="Assets\Scripts\Inventory.cs" />
+     <Compile Include="Assets\Scripts\Player.cs" />
+     <Compile Include="Assets\Scripts\ScreenSizeChangeListener.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
