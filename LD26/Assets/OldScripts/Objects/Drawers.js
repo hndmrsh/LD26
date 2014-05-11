@@ -1,6 +1,6 @@
 #pragma strict
 
-public class Drawers extends Interactable{
+public class Drawers extends Interactable {
 
 	function Use(){
 		Q(say, ["Those drawers are jammed shut. Nothing worthwhile in them anyway."]);

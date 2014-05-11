@@ -26,11 +26,11 @@ public class Inventory : MonoBehaviour {
 	}
 
 	private void UpdatePosition() {
-		if (player.IsAcceptingInput() && (Screen.height - Input.mousePosition.y) <= (position + height) && position < 0) {
+		if (player.AcceptingInput && (Screen.height - Input.mousePosition.y) <= (position + height) && position < 0) {
 			print("expanding");
 			position += expandSpeed;
 			ConstrictPosition();
-		} else if ((!player.IsAcceptingInput() || (Screen.height - Input.mousePosition.y) > (position + height)) && position > (-height + 1)) {
+		} else if ((!player.AcceptingInput || (Screen.height - Input.mousePosition.y) > (position + height)) && position > (-height + 1)) {
 			print("retracting");
 			position -= expandSpeed;
 			ConstrictPosition();

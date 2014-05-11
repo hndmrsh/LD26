@@ -81,7 +81,6 @@ public class ScriptEvents extends MonoBehaviour implements ScreenSizeChangeListe
 	protected var playSound = function(sound : AudioSource){
 		print("startSound(" + sound + ")");
 		sound.Play();
-		
 	};
 	
 	protected var stopSound = function(sound : AudioSource){

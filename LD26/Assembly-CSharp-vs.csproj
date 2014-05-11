@@ -46,10 +46,26 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Scripts\Events\Functions\ExecuteEvent.cs" />
+     <Compile Include="Assets\Scripts\Events\Functions\FadeIn.cs" />
+     <Compile Include="Assets\Scripts\Events\Functions\FadeOut.cs" />
+     <Compile Include="Assets\Scripts\Events\Functions\Move.cs" />
+     <Compile Include="Assets\Scripts\Events\Functions\PlaySound.cs" />
+     <Compile Include="Assets\Scripts\Events\Functions\Rotate.cs" />
+     <Compile Include="Assets\Scripts\Events\Functions\Say.cs" />
+     <Compile Include="Assets\Scripts\Events\Functions\ScriptFunction.cs" />
+     <Compile Include="Assets\Scripts\Events\Functions\StopSound.cs" />
+     <Compile Include="Assets\Scripts\Events\Functions\Title.cs" />
+     <Compile Include="Assets\Scripts\Events\Functions\Wait.cs" />
+     <Compile Include="Assets\Scripts\Events\Functions\WaitForInput.cs" />
+     <Compile Include="Assets\Scripts\Events\SceneEvents\ApartmentScriptEvents.cs" />
+     <Compile Include="Assets\Scripts\Events\ScriptEvents.cs" />
      <Compile Include="Assets\Scripts\GameInfo.cs" />
      <Compile Include="Assets\Scripts\HalogenLight.cs" />
+     <Compile Include="Assets\Scripts\Interactable.cs" />
      <Compile Include="Assets\Scripts\Inventory.cs" />
      <Compile Include="Assets\Scripts\Player.cs" />
+     <Compile Include="Assets\Scripts\PoliceLights.cs" />
      <Compile Include="Assets\Scripts\ScreenSizeChangeListener.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
