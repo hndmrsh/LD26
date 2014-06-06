@@ -39,3 +39,10 @@ Puzzle 5:
 
 - something is blocking your path
 - you need to delete the file from the /etc folder so you can continue
+
+Puzzle 6:
+---------
+
+- you need to get an item to a person in a prison cell (or similar)
+- can't access their inventory (no permission!)
+- need to put item in a box in the cell (by moving the file to /etc/box/ or something)
